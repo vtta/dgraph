@@ -6,7 +6,10 @@ DIR="$(readlink -f "$DIR/../..")"
 cd "$DIR"
 
 DGRAPH="$DIR/dgraph/dgraph"
+RATEL_RELEASE="https://github.com/dgraph-io/ratel/releases/download/21.03/dgraph-ratel-linux.tar.gz"
+RATEL="$DIR/ratel"
 [ -f "$DGRAPH" ] || make -j
+[ -f "$RATEL" ] || ( wget "$RATEL_RELEASE" && tar axvf dgraph-ratel-linux.tar.gz )
 PIDS=()
 
 unset http_proxy https_proxy
@@ -39,7 +42,7 @@ alpha() {
   NAME=alpha$ID
   rm -rf $NAME
   "$DGRAPH" alpha -v2 \
-    --security "whitelist=10.0.0.0/8,172.16.0.0/12,192.168.0.0/16;" \
+    --security "whitelist=0.0.0.0/0;" \
     --log_dir=$NAME \
     --my=0.0.0.0:$((7080+ID)) \
     --zero=0.0.0.0:5080 \
@@ -53,6 +56,12 @@ alpha() {
   PIDS+=($!)
 }
 
+ratel() {
+  "$RATEL" &
+  PIDS+=($!)
+}
+
+ratel
 zero
 alpha 0
 alpha 1
