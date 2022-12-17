@@ -4,6 +4,7 @@ set -ex
 DIR="$(dirname "$(readlink -f "$0")")"
 DIR="$(readlink -f "$DIR/../..")"
 cd "$DIR"
+make -j
 
 unset http_proxy https_proxy
 DGRAPH="$DIR/dgraph/dgraph"
