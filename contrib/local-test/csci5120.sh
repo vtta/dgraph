@@ -4,12 +4,12 @@ set -ex
 DIR="$(dirname "$(readlink -f "$0")")"
 DIR="$(readlink -f "$DIR/../..")"
 cd "$DIR"
-make -j
 
-unset http_proxy https_proxy
 DGRAPH="$DIR/dgraph/dgraph"
+[ -f "$DGRAPH" ] || make -j
 PIDS=()
 
+unset http_proxy https_proxy
 cleanup() {
   kill ${PIDS[@]} &>/dev/null
   wait ${PIDS[@]}
