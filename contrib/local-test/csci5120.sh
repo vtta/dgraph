@@ -17,6 +17,10 @@ cleanup() {
 }
 trap cleanup EXIT
 
+wait_for_ctrl_c() {
+  read -r -d '' _ </dev/tty
+}
+
 zero() {
   NAME=zero
   rm -rf $NAME
@@ -54,5 +58,5 @@ alpha 0
 alpha 1
 alpha 2
 
-sleep 10000
+wait_for_ctrl_c
 
