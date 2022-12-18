@@ -44,10 +44,11 @@ alpha() {
   local ID="$1"
   local BULKDATA="$BULK/$ID/p"
   local DATADIR="$DIR/data-run/alpha$ID"
-  rm -rf "$DATADIR"
-  mkdir -p "$DATADIR"
-  rsync -rvh --progress "$BULKDATA" "$DATADIR" &>/dev/null \
+  [ -d $DATADIR/p ] || { \
+    mkdir -p "$DATADIR" \
+    && rsync -rvh --progress "$BULKDATA" "$DATADIR" &>/dev/null \
     || fail "cannot prepare bulk data for alpha$ID"
+  }
   "$DGRAPH" alpha -v2 \
     --security "whitelist=0.0.0.0/0;" \
     --log_dir=$DATADIR \
