@@ -18,11 +18,21 @@ RATEL="$DIR/ratel"
 BULK="$(readlink -f "$1")"
 
 unset http_proxy https_proxy
+stop() {
+  ID="$1"
+  curl "http://localhost:$((8080+ID))/admin" \
+    --fail --silent --request POST \
+    --header "Content-Type: application/graphql" \
+    --data $'mutation { stop { response { message code } } }' \
+    &>/dev/null || true
+}
 cleanup() {
-  kill ${PIDS[@]:1}
-  wait ${PIDS[@]:1}
-  kill ${PIDS[0]}
-  wait ${PIDS[0]}
+  stop 0
+  stop 1
+  stop 2
+  wait ${PIDS[@]:2}
+  kill ${PIDS[@]:0:2} &>/dev/null
+  wait ${PIDS[@]}
 }
 trap cleanup EXIT
 
@@ -39,15 +49,14 @@ zero() {
     &
     # &>/dev/null &
   PIDS+=($!)
-  sleep 5
 }
 
 alpha() {
   local ID="$1"
   local BULKDATA="$BULK/$ID/p"
   local DATADIR="$DIR/data-run/alpha$ID"
-  [ -d $DATADIR/p ] || { \
-    rsync -rvh --progress "$BULKDATA" "$DATADIR" &>/dev/null \
+  [ -d $DATADIR/p ] || {
+    rsync -rvh --progress --mkpath "$BULKDATA" "$DATADIR" &>/dev/null \
     || fail "cannot prepare bulk data for alpha$ID"
   }
   "$DGRAPH" alpha -v2 \
