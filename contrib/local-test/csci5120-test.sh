@@ -8,7 +8,7 @@ cd "$DIR"
 DGRAPH="$DIR/dgraph/dgraph"
 RATEL_RELEASE="https://github.com/dgraph-io/ratel/releases/download/21.03/dgraph-ratel-linux.tar.gz"
 RATEL="$DIR/ratel"
-[ -f "$DGRAPH" ] || make -j
+[ -f "$DGRAPH" ] || make -C "$DIR" -j
 [ -f "$RATEL" ] || ( wget "$RATEL_RELEASE" && tar axvf dgraph-ratel-linux.tar.gz )
 PIDS=()
 
@@ -25,7 +25,7 @@ wait_for_ctrl_c() {
 }
 
 zero() {
-  DATADIR="$DIR/data/zero"
+  local DATADIR="$DIR/data/zero"
   "$DGRAPH" zero -v2 \
     --log_dir=$DATADIR \
     --wal=$DATADIR/w \
@@ -37,8 +37,8 @@ zero() {
 }
 
 alpha() {
-  ID=$1
-  DATADIR="$DIR/data/alpha$ID"
+  local ID=$1
+  local DATADIR="$DIR/data/alpha$ID"
   "$DGRAPH" alpha -v2 \
     --security "whitelist=0.0.0.0/0;" \
     --log_dir=$DATADIR \
