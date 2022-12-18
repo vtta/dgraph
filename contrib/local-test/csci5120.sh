@@ -16,7 +16,7 @@ unset http_proxy https_proxy
 cleanup() {
   kill ${PIDS[@]} &>/dev/null
   wait ${PIDS[@]}
-  rm -rf zero alpha*
+  rm -rf "$DIR/data"
 }
 trap cleanup EXIT
 
@@ -25,11 +25,11 @@ wait_for_ctrl_c() {
 }
 
 zero() {
-  NAME=zero
-  rm -rf $NAME
+  DATADIR="$DIR/data/zero"
+  rm -rf $DATADIR
   "$DGRAPH" zero -v2 \
-    --log_dir=$NAME \
-    --wal=$NAME/w \
+    --log_dir=$DATADIR \
+    --wal=$DATADIR/w \
     --telemetry="reports=false;sentry=false;" \
     &
     # &>/dev/null &
@@ -39,17 +39,17 @@ zero() {
 
 alpha() {
   ID=$1
-  NAME=alpha$ID
-  rm -rf $NAME
+  DATADIR="$DIR/data/alpha$ID"
+  rm -rf $DATADIR
   "$DGRAPH" alpha -v2 \
     --security "whitelist=0.0.0.0/0;" \
-    --log_dir=$NAME \
+    --log_dir=$DATADIR \
     --my=0.0.0.0:$((7080+ID)) \
     --zero=0.0.0.0:5080 \
     --port_offset=$ID \
-    --tmp=$NAME/t \
-    --wal=$NAME/w \
-    --postings=$NAME/p \
+    --tmp=$DATADIR/t \
+    --wal=$DATADIR/w \
+    --postings=$DATADIR/p \
     --telemetry="reports=false;sentry=false;" \
     &
     # &>/dev/null &
