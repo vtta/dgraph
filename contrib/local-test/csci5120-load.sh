@@ -27,14 +27,17 @@ is_dgrahp_up || \
 
 DATASRCDIR="$(readlink -f "$1")"
 BULK="$DATASRCDIR/../bulk"
+SHARDS=3
 mkdir -p "$BULK/data"
 
 fd -Ie txt part- "$DATASRCDIR/schema.indexed.dgraph" -X cat {} > "$BULK/dgraph.schema"
 fd -Ie txt.gz part- "$DATASRCDIR" -x ln -sf {} "$BULK/data"
-FILES="$(cd "$BULK/data"; fd -Ie txt.gz part- | xargs | sed -e "s/ /,/g" )"
+FILES="$(fd -Ie txt.gz part- "$BULK/data" -X echo {/} | xargs | sed -e "s/ /,/g" )"
 
 cd "$BULK/data"
 "$DGRAPH" bulk -j=$(nproc) --ignore_errors \
+  --reduce_shards="$SHARDS" --map_shards="$SHARDS" \
+  --badger=compression=zstd \
   --zero=localhost:5080 \
   --store_xids --xidmap="$BULK/xidmap" \
   --tmp="$BULK/tmp" --out="$BULK/out" --replace_out \
