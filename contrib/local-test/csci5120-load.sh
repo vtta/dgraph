@@ -6,7 +6,7 @@ DIR="$(readlink -f "$DIR/../..")"
 cd "$DIR"
 
 DGRAPH="$DIR/dgraph/dgraph"
-[ -f "$DGRAPH" ] || make -j
+[ -f "$DGRAPH" ] || make -C "$DIR" -j
 unset http_proxy https_proxy
 cleanup() {
   kill ${PIDS[@]} &>/dev/null
@@ -43,7 +43,7 @@ bulk() {
   local DATADIR="$DIR/data/bulk"
   pushd "$WORKINGDIR"
   "$DGRAPH" bulk -j=$((3*$(nproc))) --ignore_errors \
-    --reduce_shards="$SHARDS" --map_shards="$SHARDS" \
+    --reduce_shards="$SHARDS" --map_shards="$((16*SHARDS))" \
     --badger=compression=zstd \
     --zero=localhost:5080 \
     --tmp="$DATADIR/tmp" \
