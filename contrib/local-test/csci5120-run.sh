@@ -19,8 +19,10 @@ BULK="$(readlink -f "$1")"
 
 unset http_proxy https_proxy
 cleanup() {
-  kill ${PIDS[@]} &>/dev/null
-  wait ${PIDS[@]}
+  kill ${PIDS[@]:1}
+  wait ${PIDS[@]:1}
+  kill ${PIDS[0]}
+  wait ${PIDS[0]}
 }
 trap cleanup EXIT
 
@@ -53,6 +55,7 @@ alpha() {
     --log_dir=$DATADIR \
     --my=0.0.0.0:$((7080+ID)) \
     --zero=0.0.0.0:5080 \
+    --raft="group=$((ID+1))" \
     --port_offset=$ID \
     --tmp="$DATADIR/t" \
     --wal="$DATADIR/w" \
@@ -64,12 +67,12 @@ alpha() {
 }
 
 ratel() {
-  "$RATEL" &
+  "$RATEL" &>/dev/null &
   PIDS+=($!)
 }
 
-ratel
 zero
+ratel
 alpha 0
 alpha 1
 alpha 2

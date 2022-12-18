@@ -3,7 +3,6 @@ set -ex
 
 DIR="$(dirname "$(readlink -f "$0")")"
 DIR="$(readlink -f "$DIR/../..")"
-cd "$DIR"
 
 DGRAPH="$DIR/dgraph/dgraph"
 [ -f "$DGRAPH" ] || make -C "$DIR" -j
