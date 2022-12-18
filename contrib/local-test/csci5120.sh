@@ -16,7 +16,7 @@ unset http_proxy https_proxy
 cleanup() {
   kill ${PIDS[@]} &>/dev/null
   wait ${PIDS[@]}
-  rm -rf "$DIR/data"
+  # rm -rf "$DIR/data"
 }
 trap cleanup EXIT
 
@@ -26,7 +26,6 @@ wait_for_ctrl_c() {
 
 zero() {
   DATADIR="$DIR/data/zero"
-  rm -rf $DATADIR
   "$DGRAPH" zero -v2 \
     --log_dir=$DATADIR \
     --wal=$DATADIR/w \
@@ -40,7 +39,6 @@ zero() {
 alpha() {
   ID=$1
   DATADIR="$DIR/data/alpha$ID"
-  rm -rf $DATADIR
   "$DGRAPH" alpha -v2 \
     --security "whitelist=0.0.0.0/0;" \
     --log_dir=$DATADIR \
