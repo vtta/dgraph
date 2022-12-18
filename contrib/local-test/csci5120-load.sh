@@ -8,46 +8,62 @@ cd "$DIR"
 DGRAPH="$DIR/dgraph/dgraph"
 [ -f "$DGRAPH" ] || make -j
 unset http_proxy https_proxy
+cleanup() {
+  kill ${PIDS[@]} &>/dev/null
+  wait ${PIDS[@]}
+  rm -rf "$TEMP"
+}
+trap cleanup EXIT
 
 fail() {
     printf '%s\n' "$1" >&2
     exit "${2-1}"
 }
 
-is_dgrahp_up() {
-  curl "localhost:8080/query" --silent --request POST \
-    --header "Content-Type: application/dql" \
-    --data $'{ me(func: has(starring)) { name } }'
+zero() {
+  local DATADIR="$DIR/data/zero"
+  rm -rf $DATADIR
+  "$DGRAPH" zero -v2 \
+    --log_dir=$DATADIR \
+    --wal=$DATADIR/w \
+    --telemetry="reports=false;sentry=false;" \
+    &
+    # &>/dev/null &
+  PIDS+=($!)
+  sleep 5
 }
 
-is_dgrahp_up || \
-  fail "please launch dgraph first: bash contrib/local-test/csci5120.sh"
+bulk() {
+  [ $# -eq 4 ] || fail "wrong arguement format"
+  # files are all relative path under working dir
+  local WORKINGDIR="$1"
+  local FILES="$2"
+  local SCHEMA="$3"
+  local SHARDS="$4"
+  local DATADIR="$DIR/data/bulk"
+  pushd "$WORKINGDIR"
+  "$DGRAPH" bulk -j=$((3*$(nproc))) --ignore_errors \
+    --reduce_shards="$SHARDS" --map_shards="$SHARDS" \
+    --badger=compression=zstd \
+    --zero=localhost:5080 \
+    --tmp="$DATADIR/tmp" \
+    --out="$DATADIR/out" --replace_out \
+    --store_xids --xidmap="$DATADIR/xidmap" \
+    --schema="$SCHEMA" \
+    --format=rdf --files="$FILES" \
+    --log_dir=$DATADIR
+  popd
+}
+
 [ $# -eq 1 ] || \
-  fail "please provide path to dbpedia dataset in rdf format and schema, e.g. dbpedia/2016-10/core-i18n"
+  fail "please provide path to dbpedia dataset in rdf format, e.g. dbpedia/2016-10/core-i18n"
+DBPEDIA="$(readlink -f "$1")"
+TEMP="$(mktemp --directory -t dgraph-bulk-XXXXXXXXXX)"
 
-DATASRCDIR="$(readlink -f "$1")"
-BULK="$DATASRCDIR/../bulk"
-SHARDS=3
-mkdir -p "$BULK/data"
+fd -Ie txt part- "$DBPEDIA/schema.indexed.dgraph" -X cat {} > "$TEMP/schema"
+fd -Ie txt.gz part- "$DBPEDIA" -x ln -sf {} "$TEMP"
+FILES="$(fd -Ie txt.gz part- "$TEMP" -X echo {/} | xargs | sed -e "s/ /,/g")"
 
-fd -Ie txt part- "$DATASRCDIR/schema.indexed.dgraph" -X cat {} > "$BULK/dgraph.schema"
-fd -Ie txt.gz part- "$DATASRCDIR" -x ln -sf {} "$BULK/data"
-FILES="$(fd -Ie txt.gz part- "$BULK/data" -X echo {/} | xargs | sed -e "s/ /,/g" )"
-
-cd "$BULK/data"
-"$DGRAPH" bulk -j=$(nproc) --ignore_errors \
-  --reduce_shards="$SHARDS" --map_shards="$SHARDS" \
-  --badger=compression=zstd \
-  --zero=localhost:5080 \
-  --store_xids --xidmap="$BULK/xidmap" \
-  --tmp="$BULK/tmp" --out="$BULK/out" --replace_out \
-  --schema="$BULK/dgraph.schema" \
-  --format=rdf --files="$FILES" \
-  2>&1 | tee "$BULK/log"
-
-# adapted from https://github.com/G-Research/dgraph-dbpedia
-#                data                             bulk                        schema
-# ./dgraph.bulk.sh $(pwd)/dbpedia/2016-10/core-i18n $(pwd)/dbpedia/2016-10/bulk "/data/schema.indexed.dgraph/dataset=*/lang=*/part-*.txt" "/data/*.rdf/lang=*/part-*.txt.gz"
-# cat $DATASRCDIR/schema.indexed.dgraph/dataset=*/lang=*/part-*.txt > "$BULK/dgraph.schema" 
-# RDF="$(ls $DATASRCDIR/*.rdf/lang=*/part-*.txt.gz)"
+zero
+bulk "$TEMP" "$FILES" "schema" 3
 
