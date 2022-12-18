@@ -45,8 +45,7 @@ alpha() {
   local BULKDATA="$BULK/$ID/p"
   local DATADIR="$DIR/data-run/alpha$ID"
   [ -d $DATADIR/p ] || { \
-    mkdir -p "$DATADIR" \
-    && rsync -rvh --progress "$BULKDATA" "$DATADIR" &>/dev/null \
+    rsync -rvh --progress "$BULKDATA" "$DATADIR" &>/dev/null \
     || fail "cannot prepare bulk data for alpha$ID"
   }
   "$DGRAPH" alpha -v2 \
@@ -55,9 +54,9 @@ alpha() {
     --my=0.0.0.0:$((7080+ID)) \
     --zero=0.0.0.0:5080 \
     --port_offset=$ID \
-    --tmp=$DATADIR/t \
-    --wal=$DATADIR/w \
-    --postings=$DATADIR/p \
+    --tmp="$DATADIR/t" \
+    --wal="$DATADIR/w" \
+    --postings="$DATADIR/p" \
     --telemetry="reports=false;sentry=false;" \
     &
     # &>/dev/null &
