@@ -28,6 +28,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"sync"
 	"sync/atomic"
 	"time"
 	"unicode"
@@ -93,6 +94,7 @@ var (
 
 var (
 	errIndexingInProgress = errors.New("errIndexingInProgress. Please retry")
+	queryCacheLock        = new(sync.Mutex)
 	queryCache            = make(map[string]query.ExecutionResult)
 )
 
@@ -1248,9 +1250,11 @@ func (s *Server) doQuery(ctx context.Context, req *Request) (resp *api.Response,
 	}
 	if isMutation {
 		ostats.Record(ctx, x.NumMutations.M(1))
+		queryCacheLock.Lock()
 		for k := range queryCache {
 			delete(queryCache, k)
 		}
+		queryCacheLock.Unlock()
 	}
 
 	if req.doAuth == NeedAuthorize && x.IsGalaxyOperation(ctx) {
@@ -1397,6 +1401,8 @@ func processQuery(ctx context.Context, qc *queryContext) (*api.Response, error) 
 
 	// Core processing happens here.
 	Process := func(ctx context.Context) (er query.ExecutionResult, err error) {
+		queryCacheLock.Lock()
+		defer queryCacheLock.Unlock()
 		for k, v := range queryCache {
 			if k == qc.req.Query {
 				if bool(glog.V(2)) {
@@ -1406,6 +1412,9 @@ func processQuery(ctx context.Context, qc *queryContext) (*api.Response, error) 
 			}
 		}
 		er, err = qr.Process(ctx)
+		if queryCache == nil {
+			queryCache = make(map[string]query.ExecutionResult)
+		}
 		queryCache[qc.req.Query] = er
 		if bool(glog.V(2)) {
 			glog.Infof("Cached new query: %+v %+v\n", qc.req.Query, er)
