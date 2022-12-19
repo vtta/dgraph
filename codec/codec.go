@@ -23,8 +23,8 @@ import (
 	"sort"
 	"unsafe"
 
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/ristretto/z"
 	"github.com/dgryski/go-groupvarint"
 )

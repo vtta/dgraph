@@ -21,8 +21,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/graphql/e2e/common"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/graphql/e2e/common"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/ristretto/z"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"

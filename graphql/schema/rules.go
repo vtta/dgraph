@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/gqlparser/v2/ast"
 	"github.com/dgraph-io/gqlparser/v2/gqlerror"
 	"github.com/dgraph-io/gqlparser/v2/parser"

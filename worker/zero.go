@@ -19,8 +19,8 @@ package worker
 import (
 	"context"
 
-	"github.com/dgraph-io/dgraph/conn"
-	"github.com/dgraph-io/dgraph/protos/pb"
+	"github.com/vtta/dgraph/conn"
+	"github.com/vtta/dgraph/protos/pb"
 )
 
 // RemoveNodeOverNetwork sends a request to remove the given node from given group to a zero server.

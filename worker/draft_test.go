@@ -21,10 +21,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/posting"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/raftwal"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/posting"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/raftwal"
+	"github.com/vtta/dgraph/x"
 	"github.com/stretchr/testify/require"
 	"go.etcd.io/etcd/raft/raftpb"
 )

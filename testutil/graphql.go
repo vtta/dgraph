@@ -32,7 +32,7 @@ import (
 	"github.com/dgrijalva/jwt-go/v4"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 
 	"github.com/stretchr/testify/require"
 )

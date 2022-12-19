@@ -25,10 +25,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 
-	"github.com/dgraph-io/dgraph/graphql/e2e/common"
-	"github.com/dgraph-io/dgraph/testutil"
+	"github.com/vtta/dgraph/graphql/e2e/common"
+	"github.com/vtta/dgraph/testutil"
 	"github.com/stretchr/testify/require"
 )
 

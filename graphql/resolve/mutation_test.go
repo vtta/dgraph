@@ -25,12 +25,12 @@ import (
 	"testing"
 
 	dgoapi "github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/testutil"
+	"github.com/vtta/dgraph/testutil"
 
-	"github.com/dgraph-io/dgraph/graphql/dgraph"
-	"github.com/dgraph-io/dgraph/graphql/schema"
-	"github.com/dgraph-io/dgraph/graphql/test"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/graphql/dgraph"
+	"github.com/vtta/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/graphql/test"
+	"github.com/vtta/dgraph/x"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v2"
 )

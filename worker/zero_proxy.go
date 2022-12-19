@@ -3,9 +3,9 @@ package worker
 import (
 	"context"
 
-	"github.com/dgraph-io/dgraph/conn"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/conn"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/x"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 )

@@ -23,9 +23,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/raftwal"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/raftwal"
+	"github.com/vtta/dgraph/x"
 	humanize "github.com/dustin/go-humanize"
 	"go.etcd.io/etcd/raft"
 	"go.etcd.io/etcd/raft/raftpb"

@@ -22,11 +22,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dgraph-io/dgraph/posting"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/schema"
-	"github.com/dgraph-io/dgraph/types"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/posting"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/schema"
+	"github.com/vtta/dgraph/types"
+	"github.com/vtta/dgraph/x"
 )
 
 func TestConvertEdgeType(t *testing.T) {

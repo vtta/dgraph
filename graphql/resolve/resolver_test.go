@@ -19,10 +19,10 @@ package resolve
 import (
 	"testing"
 
-	"github.com/dgraph-io/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/graphql/schema"
 
-	"github.com/dgraph-io/dgraph/graphql/test"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/graphql/test"
+	"github.com/vtta/dgraph/x"
 	"github.com/google/go-cmp/cmp"
 	"github.com/stretchr/testify/require"
 )

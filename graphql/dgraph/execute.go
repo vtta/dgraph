@@ -24,9 +24,9 @@ import (
 	"go.opencensus.io/trace"
 
 	dgoapi "github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/edgraph"
-	"github.com/dgraph-io/dgraph/graphql/schema"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/edgraph"
+	"github.com/vtta/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/x"
 )
 
 type DgraphEx struct{}

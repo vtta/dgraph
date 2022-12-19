@@ -28,11 +28,11 @@ import (
 	"go.etcd.io/etcd/raft"
 
 	"github.com/dgraph-io/badger/v3"
-	"github.com/dgraph-io/dgraph/conn"
-	"github.com/dgraph-io/dgraph/posting"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/schema"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/conn"
+	"github.com/vtta/dgraph/posting"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/schema"
+	"github.com/vtta/dgraph/x"
 )
 
 const (

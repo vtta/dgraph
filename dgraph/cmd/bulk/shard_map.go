@@ -19,7 +19,7 @@ package bulk
 import (
 	"sync"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 )
 
 type shardMap struct {

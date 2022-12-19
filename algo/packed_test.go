@@ -20,8 +20,8 @@ import (
 	"math"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/codec"
-	"github.com/dgraph-io/dgraph/protos/pb"
+	"github.com/vtta/dgraph/codec"
+	"github.com/vtta/dgraph/protos/pb"
 	"github.com/stretchr/testify/require"
 )
 

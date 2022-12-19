@@ -32,11 +32,11 @@ import (
 	"github.com/dgraph-io/dgo/v210"
 	"github.com/dgraph-io/dgo/v210/protos/api"
 
-	"github.com/dgraph-io/dgraph/posting"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/schema"
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/posting"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/schema"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/x"
 )
 
 var ts uint64

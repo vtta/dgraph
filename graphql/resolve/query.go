@@ -26,10 +26,10 @@ import (
 	otrace "go.opencensus.io/trace"
 
 	dgoapi "github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/gql"
-	"github.com/dgraph-io/dgraph/graphql/dgraph"
-	"github.com/dgraph-io/dgraph/graphql/schema"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/gql"
+	"github.com/vtta/dgraph/graphql/dgraph"
+	"github.com/vtta/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/x"
 )
 
 var errNotScalar = errors.New("provided value is not a scalar, can't convert it to string")

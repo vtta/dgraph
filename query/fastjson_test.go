@@ -5,10 +5,10 @@ import (
 	"math"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/task"
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/types"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/task"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/types"
 	"github.com/stretchr/testify/require"
 )
 

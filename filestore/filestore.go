@@ -21,7 +21,7 @@ import (
 	"io"
 	"net/url"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 )
 
 // FileStore represents a file or directory of files that are either stored

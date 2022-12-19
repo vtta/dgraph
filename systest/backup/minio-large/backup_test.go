@@ -35,9 +35,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"
 
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/worker"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/worker"
+	"github.com/vtta/dgraph/x"
 )
 
 var (

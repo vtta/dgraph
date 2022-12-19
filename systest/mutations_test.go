@@ -32,7 +32,7 @@ import (
 
 	"github.com/dgraph-io/dgo/v210"
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/testutil"
+	"github.com/vtta/dgraph/testutil"
 	"github.com/stretchr/testify/require"
 )
 
@@ -1979,7 +1979,7 @@ func ReverseCountIndexDelete(t *testing.T, c *dgo.Dgraph) {
 
 func ReverseCountIndex(t *testing.T, c *dgo.Dgraph) {
 	// This test checks that we consider reverse count index keys while doing conflict detection
-	// for transactions. See https://github.com/dgraph-io/dgraph/issues/3893 for more details.
+	// for transactions. See https://github.com/vtta/dgraph/issues/3893 for more details.
 	op := &api.Operation{}
 	op.Schema = `friend: [uid] @count @reverse .`
 

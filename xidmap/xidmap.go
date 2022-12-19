@@ -32,8 +32,8 @@ import (
 
 	"github.com/dgraph-io/badger/v3"
 	"github.com/dgraph-io/dgo/v210"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/ristretto/z"
 	"github.com/dgryski/go-farm"
 	"github.com/golang/glog"

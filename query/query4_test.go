@@ -23,7 +23,7 @@ import (
 	"testing"
 
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -789,7 +789,7 @@ func TestHasFirst(t *testing.T) {
 }
 
 // This test is not working currently, but start working after
-// PR https://github.com/dgraph-io/dgraph/pull/4316 is merged.
+// PR https://github.com/vtta/dgraph/pull/4316 is merged.
 // func TestHasFirstLangPredicate(t *testing.T) {
 // 	query := `{
 // 		q(func:has(name@lang), orderasc: name, first:5) {

@@ -7,7 +7,7 @@
  * may not use this file except in compliance with the License. You
  * may obtain a copy of the License at
  *
- *     https://github.com/dgraph-io/dgraph/blob/master/licenses/DCL.txt
+ *     https://github.com/vtta/dgraph/blob/master/licenses/DCL.txt
  */
 
 package worker
@@ -15,8 +15,8 @@ package worker
 import (
 	"testing"
 
-	"github.com/dgraph-io/dgraph/ee/acl"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/ee/acl"
+	"github.com/vtta/dgraph/x"
 	"github.com/stretchr/testify/require"
 )
 

@@ -22,9 +22,9 @@ import (
 	"context"
 
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/gql"
-	"github.com/dgraph-io/dgraph/query"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/gql"
+	"github.com/vtta/dgraph/query"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/ristretto/z"
 	"github.com/golang/glog"
 )

@@ -28,9 +28,9 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/dgraph-io/dgraph/ee/enc"
-	"github.com/dgraph-io/dgraph/lex"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/ee/enc"
+	"github.com/vtta/dgraph/lex"
+	"github.com/vtta/dgraph/x"
 
 	"github.com/pkg/errors"
 )

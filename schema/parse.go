@@ -21,11 +21,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dgraph-io/dgraph/lex"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/tok"
-	"github.com/dgraph-io/dgraph/types"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/lex"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/tok"
+	"github.com/vtta/dgraph/types"
+	"github.com/vtta/dgraph/x"
 
 	"github.com/golang/glog"
 	"github.com/pkg/errors"

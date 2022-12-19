@@ -25,9 +25,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/types"
-	"github.com/dgraph-io/dgraph/worker"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/types"
+	"github.com/vtta/dgraph/worker"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/ristretto/z"
 	"github.com/stretchr/testify/require"
 )

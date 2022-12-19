@@ -34,9 +34,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/dgraph-io/dgraph/ee"
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/ee"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/x"
 )
 
 var (

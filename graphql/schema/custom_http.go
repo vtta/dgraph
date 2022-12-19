@@ -26,9 +26,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dgraph-io/dgraph/graphql/authorization"
+	"github.com/vtta/dgraph/graphql/authorization"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 )
 
 var (

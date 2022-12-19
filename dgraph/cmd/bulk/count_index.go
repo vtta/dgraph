@@ -24,10 +24,10 @@ import (
 	"sync/atomic"
 
 	"github.com/dgraph-io/badger/v3"
-	"github.com/dgraph-io/dgraph/codec"
-	"github.com/dgraph-io/dgraph/posting"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/codec"
+	"github.com/vtta/dgraph/posting"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/ristretto/z"
 )
 

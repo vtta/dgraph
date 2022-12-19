@@ -30,10 +30,10 @@ import (
 	"time"
 
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/graphql/e2e/common"
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/worker"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/graphql/e2e/common"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/worker"
+	"github.com/vtta/dgraph/x"
 	"github.com/stretchr/testify/require"
 )
 

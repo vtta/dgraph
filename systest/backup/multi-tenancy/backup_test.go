@@ -31,10 +31,10 @@ import (
 	"github.com/dgraph-io/dgo/v210/protos/api"
 	"github.com/stretchr/testify/require"
 
-	"github.com/dgraph-io/dgraph/systest/backup/common"
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/worker"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/systest/backup/common"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/worker"
+	"github.com/vtta/dgraph/x"
 )
 
 var (

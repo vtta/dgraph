@@ -17,11 +17,11 @@
 package worker
 
 import (
-	"github.com/dgraph-io/dgraph/algo"
-	"github.com/dgraph-io/dgraph/posting"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/tok"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/algo"
+	"github.com/vtta/dgraph/posting"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/tok"
+	"github.com/vtta/dgraph/x"
 )
 
 // LevenshteinDistance measures the difference between two strings.

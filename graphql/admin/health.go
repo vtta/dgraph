@@ -19,10 +19,10 @@ package admin
 import (
 	"context"
 
-	"github.com/dgraph-io/dgraph/edgraph"
-	"github.com/dgraph-io/dgraph/graphql/resolve"
-	"github.com/dgraph-io/dgraph/graphql/schema"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/edgraph"
+	"github.com/vtta/dgraph/graphql/resolve"
+	"github.com/vtta/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/x"
 	"github.com/golang/glog"
 	"github.com/pkg/errors"
 )

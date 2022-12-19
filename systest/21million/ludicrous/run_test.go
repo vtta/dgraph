@@ -20,7 +20,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/dgraph-io/dgraph/testutil"
+	"github.com/vtta/dgraph/testutil"
 
 	"testing"
 )

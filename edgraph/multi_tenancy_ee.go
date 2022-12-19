@@ -7,7 +7,7 @@
  * may not use this file except in compliance with the License. You
  * may obtain a copy of the License at
  *
- *     https://github.com/dgraph-io/dgraph/blob/master/licenses/DCL.txt
+ *     https://github.com/vtta/dgraph/blob/master/licenses/DCL.txt
  */
 
 package edgraph
@@ -19,11 +19,11 @@ import (
 	"time"
 
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/query"
-	"github.com/dgraph-io/dgraph/schema"
-	"github.com/dgraph-io/dgraph/worker"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/query"
+	"github.com/vtta/dgraph/schema"
+	"github.com/vtta/dgraph/worker"
+	"github.com/vtta/dgraph/x"
 	"github.com/golang/glog"
 	"github.com/pkg/errors"
 )

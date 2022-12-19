@@ -38,13 +38,13 @@ import (
 	"github.com/dgraph-io/badger/v3"
 	"github.com/dgraph-io/badger/v3/y"
 
-	"github.com/dgraph-io/dgraph/chunker"
-	"github.com/dgraph-io/dgraph/ee/enc"
-	"github.com/dgraph-io/dgraph/filestore"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/schema"
-	"github.com/dgraph-io/dgraph/x"
-	"github.com/dgraph-io/dgraph/xidmap"
+	"github.com/vtta/dgraph/chunker"
+	"github.com/vtta/dgraph/ee/enc"
+	"github.com/vtta/dgraph/filestore"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/schema"
+	"github.com/vtta/dgraph/x"
+	"github.com/vtta/dgraph/xidmap"
 
 	"google.golang.org/grpc"
 )

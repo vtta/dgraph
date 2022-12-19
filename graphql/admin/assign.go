@@ -23,10 +23,10 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/dgraph-io/dgraph/graphql/resolve"
-	"github.com/dgraph-io/dgraph/graphql/schema"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/worker"
+	"github.com/vtta/dgraph/graphql/resolve"
+	"github.com/vtta/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/worker"
 )
 
 const (

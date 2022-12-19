@@ -25,7 +25,7 @@ import (
 
 	"github.com/dgraph-io/badger/v3"
 	bpb "github.com/dgraph-io/badger/v3/pb"
-	"github.com/dgraph-io/dgraph/protos/pb"
+	"github.com/vtta/dgraph/protos/pb"
 )
 
 // VerifyPack checks that the Pack should not be nil if the postings exist.

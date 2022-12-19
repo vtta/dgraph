@@ -20,8 +20,8 @@ import (
 	"container/heap"
 	"sort"
 
-	"github.com/dgraph-io/dgraph/codec"
-	"github.com/dgraph-io/dgraph/protos/pb"
+	"github.com/vtta/dgraph/codec"
+	"github.com/vtta/dgraph/protos/pb"
 )
 
 // ApplyFilterPacked applies the filter to a list of packed uids.

@@ -22,7 +22,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 
 	"github.com/dgraph-io/gqlparser/v2/ast"
 	"github.com/google/go-cmp/cmp"

@@ -25,9 +25,9 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/dgraph-io/badger/v3"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/types"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/types"
+	"github.com/vtta/dgraph/x"
 )
 
 type nameType struct {

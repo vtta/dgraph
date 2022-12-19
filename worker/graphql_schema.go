@@ -26,10 +26,10 @@ import (
 
 	"github.com/golang/glog"
 
-	"github.com/dgraph-io/dgraph/conn"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/schema"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/conn"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/schema"
+	"github.com/vtta/dgraph/x"
 	"github.com/pkg/errors"
 )
 

@@ -31,7 +31,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/testutil"
+	"github.com/vtta/dgraph/testutil"
 	"github.com/golang/glog"
 	"github.com/pkg/errors"
 
@@ -735,8 +735,8 @@ func DONOTRUNTestGoldenData(t *testing.T) {
 	}
 
 	s := newSuiteFromFile(t,
-		os.ExpandEnv("$GOPATH/src/github.com/dgraph-io/dgraph/systest/data/goldendata.schema"),
-		os.ExpandEnv("$GOPATH/src/github.com/dgraph-io/dgraph/systest/data/goldendata.rdf.gz"),
+		os.ExpandEnv("$GOPATH/src/github.com/vtta/dgraph/systest/data/goldendata.schema"),
+		os.ExpandEnv("$GOPATH/src/github.com/vtta/dgraph/systest/data/goldendata.rdf.gz"),
 		"",
 	)
 	defer s.cleanup(t)

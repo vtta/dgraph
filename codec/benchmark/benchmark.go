@@ -32,9 +32,9 @@ import (
 	"sort"
 	"time"
 
-	"github.com/dgraph-io/dgraph/codec"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/codec"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/x"
 )
 
 // So, with SIMD instructions before, we were getting great performance, but at the cost of

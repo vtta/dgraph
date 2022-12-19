@@ -22,7 +22,7 @@ import (
 	bpb "github.com/dgraph-io/badger/v3/pb"
 
 	"github.com/dgraph-io/badger/v3"
-	"github.com/dgraph-io/dgraph/protos/pb"
+	"github.com/vtta/dgraph/protos/pb"
 )
 
 // VerifyPack works in debug mode. Check out the comment in debug_on.go

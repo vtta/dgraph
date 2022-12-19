@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/dgraph-io/dgraph/algo"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/algo"
+	"github.com/vtta/dgraph/x"
 	"github.com/pkg/errors"
 )
 

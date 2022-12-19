@@ -28,8 +28,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dgraph-io/dgraph/chunker"
-	"github.com/dgraph-io/dgraph/testutil"
+	"github.com/vtta/dgraph/chunker"
+	"github.com/vtta/dgraph/testutil"
 	"github.com/stretchr/testify/require"
 )
 

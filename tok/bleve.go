@@ -17,7 +17,7 @@
 package tok
 
 import (
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 
 	"github.com/blevesearch/bleve/analysis"
 	"github.com/blevesearch/bleve/analysis/analyzer/custom"

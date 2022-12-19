@@ -13,8 +13,8 @@ import (
 	"time"
 
 	"github.com/dgraph-io/badger/v3"
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/ristretto/z"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"

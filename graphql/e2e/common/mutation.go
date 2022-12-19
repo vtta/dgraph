@@ -30,8 +30,8 @@ import (
 
 	"github.com/dgraph-io/dgo/v210"
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/x"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/stretchr/testify/require"
@@ -351,7 +351,7 @@ func deepMutationsTest(t *testing.T, executeRequest requestExecutor) {
 			},
 		},
 		// Country: anotherCountry,
-		// FIXME: Won't work till https://github.com/dgraph-io/dgraph/pull/4411 is merged
+		// FIXME: Won't work till https://github.com/vtta/dgraph/pull/4411 is merged
 	}
 
 	patchRemove := &author{

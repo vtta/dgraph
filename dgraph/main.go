@@ -21,7 +21,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/dgraph-io/dgraph/dgraph/cmd"
+	"github.com/vtta/dgraph/dgraph/cmd"
 	"github.com/dgraph-io/ristretto/z"
 	"github.com/dustin/go-humanize"
 	"github.com/golang/glog"

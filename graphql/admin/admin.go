@@ -26,13 +26,13 @@ import (
 	"github.com/pkg/errors"
 
 	badgerpb "github.com/dgraph-io/badger/v3/pb"
-	"github.com/dgraph-io/dgraph/edgraph"
-	"github.com/dgraph-io/dgraph/graphql/resolve"
-	"github.com/dgraph-io/dgraph/graphql/schema"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/query"
-	"github.com/dgraph-io/dgraph/worker"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/edgraph"
+	"github.com/vtta/dgraph/graphql/resolve"
+	"github.com/vtta/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/query"
+	"github.com/vtta/dgraph/worker"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/ristretto/z"
 )
 

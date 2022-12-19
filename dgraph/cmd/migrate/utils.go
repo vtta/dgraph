@@ -24,7 +24,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 	"github.com/go-sql-driver/mysql"
 	"github.com/pkg/errors"
 )

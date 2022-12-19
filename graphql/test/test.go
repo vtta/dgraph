@@ -21,9 +21,9 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 
-	"github.com/dgraph-io/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/graphql/schema"
 	"github.com/dgraph-io/gqlparser/v2/ast"
 	"github.com/dgraph-io/gqlparser/v2/parser"
 	"github.com/dgraph-io/gqlparser/v2/validator"

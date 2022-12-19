@@ -33,7 +33,7 @@ import (
 
 	"github.com/Shopify/sarama"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/ristretto/z"
 )
 

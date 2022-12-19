@@ -21,9 +21,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dgraph-io/dgraph/lex"
-	"github.com/dgraph-io/dgraph/types"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/lex"
+	"github.com/vtta/dgraph/types"
+	"github.com/vtta/dgraph/x"
 	"github.com/pkg/errors"
 )
 

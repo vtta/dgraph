@@ -20,9 +20,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/dgraph-io/dgraph/testutil"
+	"github.com/vtta/dgraph/testutil"
 
-	"github.com/dgraph-io/dgraph/systest/21million/common"
+	"github.com/vtta/dgraph/systest/21million/common"
 
 	"testing"
 )

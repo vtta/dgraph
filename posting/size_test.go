@@ -34,7 +34,7 @@ import (
 
 	"github.com/dgraph-io/badger/v3"
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/protos/pb"
+	"github.com/vtta/dgraph/protos/pb"
 	"github.com/dustin/go-humanize"
 	"github.com/pkg/errors"
 

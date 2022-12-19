@@ -8,9 +8,9 @@ import (
 
 	"github.com/dgrijalva/jwt-go/v4"
 
-	"github.com/dgraph-io/dgraph/graphql/authorization"
-	"github.com/dgraph-io/dgraph/graphql/e2e/common"
-	"github.com/dgraph-io/dgraph/testutil"
+	"github.com/vtta/dgraph/graphql/authorization"
+	"github.com/vtta/dgraph/graphql/e2e/common"
+	"github.com/vtta/dgraph/testutil"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/pkg/errors"

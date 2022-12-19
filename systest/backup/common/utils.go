@@ -23,9 +23,9 @@ import (
 	"github.com/dgraph-io/badger/v3/options"
 	"github.com/stretchr/testify/require"
 
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/worker"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/worker"
+	"github.com/vtta/dgraph/x"
 )
 
 var (

@@ -29,8 +29,8 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/dgraph-io/dgo/v210"
-	"github.com/dgraph-io/dgraph/testutil"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/testutil"
+	"github.com/vtta/dgraph/x"
 )
 
 var alphaService = testutil.SockAddr

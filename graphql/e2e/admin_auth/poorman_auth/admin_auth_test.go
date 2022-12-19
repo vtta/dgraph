@@ -22,11 +22,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dgraph-io/dgraph/graphql/e2e/common"
+	"github.com/vtta/dgraph/graphql/e2e/common"
 )
 
 const (

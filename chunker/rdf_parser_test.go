@@ -20,9 +20,9 @@ import (
 	"testing"
 
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/lex"
-	"github.com/dgraph-io/dgraph/types/facets"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/lex"
+	"github.com/vtta/dgraph/types/facets"
+	"github.com/vtta/dgraph/x"
 	"github.com/stretchr/testify/require"
 )
 

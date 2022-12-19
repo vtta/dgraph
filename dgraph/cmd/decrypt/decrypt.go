@@ -22,9 +22,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dgraph-io/dgraph/ee"
-	"github.com/dgraph-io/dgraph/ee/enc"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/ee"
+	"github.com/vtta/dgraph/ee/enc"
+	"github.com/vtta/dgraph/x"
 	"github.com/golang/glog"
 	"github.com/spf13/cobra"
 )

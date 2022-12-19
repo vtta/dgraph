@@ -21,8 +21,8 @@ import (
 	"math"
 	"testing"
 
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/testutil"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/testutil"
 	"github.com/stretchr/testify/require"
 )
 

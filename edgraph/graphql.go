@@ -24,8 +24,8 @@ import (
 	"fmt"
 
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/graphql/schema"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/x"
 	"github.com/golang/glog"
 	"github.com/pkg/errors"
 )

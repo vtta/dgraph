@@ -22,11 +22,11 @@ import (
 	"math"
 	"sync"
 
-	"github.com/dgraph-io/dgraph/algo"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/types"
-	"github.com/dgraph-io/dgraph/types/facets"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/algo"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/types"
+	"github.com/vtta/dgraph/types/facets"
+	"github.com/vtta/dgraph/x"
 	"github.com/pkg/errors"
 )
 

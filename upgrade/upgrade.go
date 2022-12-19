@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/x"
 	"github.com/spf13/cobra"
 )
 

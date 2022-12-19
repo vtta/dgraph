@@ -7,7 +7,7 @@
  * may not use this file except in compliance with the License. You
  * may obtain a copy of the License at
  *
- *     https://github.com/dgraph-io/dgraph/blob/master/licenses/DCL.txt
+ *     https://github.com/vtta/dgraph/blob/master/licenses/DCL.txt
  */
 
 package worker
@@ -19,9 +19,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dgraph-io/dgraph/posting"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/posting"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/x"
 	ostats "go.opencensus.io/stats"
 
 	"github.com/golang/glog"

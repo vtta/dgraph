@@ -8,7 +8,7 @@
  * may not use this file except in compliance with the License. You
  * may obtain a copy of the License at
  *
- *     https://github.com/dgraph-io/dgraph/blob/master/licenses/DCL.txt
+ *     https://github.com/vtta/dgraph/blob/master/licenses/DCL.txt
  */
 
 package edgraph
@@ -21,20 +21,20 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dgraph-io/dgraph/protos/pb"
+	"github.com/vtta/dgraph/protos/pb"
 	"github.com/dgraph-io/ristretto/z"
 
-	"github.com/dgraph-io/dgraph/query"
+	"github.com/vtta/dgraph/query"
 
 	"github.com/pkg/errors"
 
 	bpb "github.com/dgraph-io/badger/v3/pb"
 	"github.com/dgraph-io/dgo/v210/protos/api"
-	"github.com/dgraph-io/dgraph/ee/acl"
-	"github.com/dgraph-io/dgraph/gql"
-	"github.com/dgraph-io/dgraph/schema"
-	"github.com/dgraph-io/dgraph/worker"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/ee/acl"
+	"github.com/vtta/dgraph/gql"
+	"github.com/vtta/dgraph/schema"
+	"github.com/vtta/dgraph/worker"
+	"github.com/vtta/dgraph/x"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/golang/glog"
 	otrace "go.opencensus.io/trace"

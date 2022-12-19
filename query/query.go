@@ -30,14 +30,14 @@ import (
 	otrace "go.opencensus.io/trace"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/dgraph-io/dgraph/algo"
-	"github.com/dgraph-io/dgraph/gql"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/schema"
-	"github.com/dgraph-io/dgraph/types"
-	"github.com/dgraph-io/dgraph/types/facets"
-	"github.com/dgraph-io/dgraph/worker"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/algo"
+	"github.com/vtta/dgraph/gql"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/schema"
+	"github.com/vtta/dgraph/types"
+	"github.com/vtta/dgraph/types/facets"
+	"github.com/vtta/dgraph/worker"
+	"github.com/vtta/dgraph/x"
 )
 
 /*

@@ -42,12 +42,12 @@ import (
 
 	"github.com/dgraph-io/dgo/v210/protos/api"
 
-	"github.com/dgraph-io/dgraph/ee/enc"
-	"github.com/dgraph-io/dgraph/posting"
-	"github.com/dgraph-io/dgraph/protos/pb"
-	"github.com/dgraph-io/dgraph/types"
-	"github.com/dgraph-io/dgraph/types/facets"
-	"github.com/dgraph-io/dgraph/x"
+	"github.com/vtta/dgraph/ee/enc"
+	"github.com/vtta/dgraph/posting"
+	"github.com/vtta/dgraph/protos/pb"
+	"github.com/vtta/dgraph/types"
+	"github.com/vtta/dgraph/types/facets"
+	"github.com/vtta/dgraph/x"
 )
 
 // DefaultExportFormat stores the name of the default format for exports.

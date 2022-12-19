@@ -21,9 +21,9 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"github.com/dgraph-io/dgraph/graphql/resolve"
-	"github.com/dgraph-io/dgraph/graphql/schema"
-	"github.com/dgraph-io/dgraph/worker"
+	"github.com/vtta/dgraph/graphql/resolve"
+	"github.com/vtta/dgraph/graphql/schema"
+	"github.com/vtta/dgraph/worker"
 	"github.com/golang/glog"
 )
 

@@ -24,8 +24,8 @@ import (
 
 	"github.com/google/go-cmp/cmp/cmpopts"
 
-	dschema "github.com/dgraph-io/dgraph/schema"
-	"github.com/dgraph-io/dgraph/x"
+	dschema "github.com/vtta/dgraph/schema"
+	"github.com/vtta/dgraph/x"
 	"github.com/dgraph-io/gqlparser/v2/gqlerror"
 	_ "github.com/dgraph-io/gqlparser/v2/validator/rules"
 	"github.com/dgraph-io/ristretto/z"
