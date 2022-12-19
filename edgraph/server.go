@@ -94,8 +94,7 @@ var (
 
 var (
 	errIndexingInProgress = errors.New("errIndexingInProgress. Please retry")
-	queryCacheLock        = new(sync.Mutex)
-	queryCache            = make(map[string]query.ExecutionResult)
+	queryCache            = new(sync.Map)
 )
 
 // Server implements protos.DgraphServer
@@ -1250,11 +1249,10 @@ func (s *Server) doQuery(ctx context.Context, req *Request) (resp *api.Response,
 	}
 	if isMutation {
 		ostats.Record(ctx, x.NumMutations.M(1))
-		queryCacheLock.Lock()
-		for k := range queryCache {
-			delete(queryCache, k)
-		}
-		queryCacheLock.Unlock()
+		queryCache.Range(func(key, value any) bool {
+			queryCache.Delete(key)
+			return true
+		})
 	}
 
 	if req.doAuth == NeedAuthorize && x.IsGalaxyOperation(ctx) {
@@ -1401,21 +1399,26 @@ func processQuery(ctx context.Context, qc *queryContext) (*api.Response, error) 
 
 	// Core processing happens here.
 	Process := func(ctx context.Context) (er query.ExecutionResult, err error) {
-		queryCacheLock.Lock()
-		defer queryCacheLock.Unlock()
-		for k, v := range queryCache {
-			if k == qc.req.Query {
+		var hit bool
+		var result query.ExecutionResult
+		queryCache.Range(func(k any, v any) bool {
+			if k.(string) == qc.req.Query {
 				if bool(glog.V(2)) {
 					glog.Infof("Query cache hit: %+v %+v\n", qc.req.Query, v)
 				}
-				return v, nil
+				hit = true
+				result = v.(query.ExecutionResult)
 			}
+			return !hit
+		})
+		if hit {
+			return result, nil
 		}
 		er, err = qr.Process(ctx)
-		if queryCache == nil {
-			queryCache = make(map[string]query.ExecutionResult)
-		}
-		queryCache[qc.req.Query] = er
+    // if queryCache == nil {
+    //   queryCache = new(sync.Map)
+    // }
+		queryCache.Store(qc.req.Query, er)
 		if bool(glog.V(2)) {
 			glog.Infof("Cached new query: %+v %+v\n", qc.req.Query, er)
 		}
