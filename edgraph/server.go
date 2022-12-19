@@ -1400,7 +1400,7 @@ func processQuery(ctx context.Context, qc *queryContext) (*api.Response, error) 
 		for k, v := range queryCache {
 			if k == qc.req.Query {
 				if bool(glog.V(2)) {
-					glog.Infof("Query cache hit: %+v %+v\n", qc.req.Query, er)
+					glog.Infof("Query cache hit: %+v %+v\n", qc.req.Query, v)
 				}
 				return v, nil
 			}
