@@ -1403,7 +1403,7 @@ func processQuery(ctx context.Context, qc *queryContext) (*api.Response, error) 
 		var result query.ExecutionResult
 		queryCache.Range(func(k any, v any) bool {
 			if k.(string) == qc.req.Query {
-				if bool(glog.V(2)) {
+				if bool(glog.V(3)) {
 					glog.Infof("Query cache hit: %+v %+v\n", qc.req.Query, v)
 				}
 				hit = true
@@ -1419,7 +1419,7 @@ func processQuery(ctx context.Context, qc *queryContext) (*api.Response, error) 
     //   queryCache = new(sync.Map)
     // }
 		queryCache.Store(qc.req.Query, er)
-		if bool(glog.V(2)) {
+		if bool(glog.V(3)) {
 			glog.Infof("Cached new query: %+v %+v\n", qc.req.Query, er)
 		}
 		return
