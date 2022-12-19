@@ -93,6 +93,7 @@ var (
 
 var (
 	errIndexingInProgress = errors.New("errIndexingInProgress. Please retry")
+	queryCache            = make(map[string]query.ExecutionResult)
 )
 
 // Server implements protos.DgraphServer
@@ -1247,6 +1248,9 @@ func (s *Server) doQuery(ctx context.Context, req *Request) (resp *api.Response,
 	}
 	if isMutation {
 		ostats.Record(ctx, x.NumMutations.M(1))
+		for k := range queryCache {
+			delete(queryCache, k)
+		}
 	}
 
 	if req.doAuth == NeedAuthorize && x.IsGalaxyOperation(ctx) {
@@ -1392,7 +1396,24 @@ func processQuery(ctx context.Context, qc *queryContext) (*api.Response, error) 
 	resp.Txn = &api.TxnContext{StartTs: qc.req.StartTs}
 
 	// Core processing happens here.
-	er, err := qr.Process(ctx)
+	Process := func(ctx context.Context) (er query.ExecutionResult, err error) {
+		for k, v := range queryCache {
+			if k == qc.req.Query {
+				if bool(glog.V(2)) {
+					glog.Infof("Query cache hit: %+v %+v\n", qc.req.Query, er)
+				}
+				return v, nil
+			}
+		}
+		er, err = qr.Process(ctx)
+		queryCache[qc.req.Query] = er
+		if bool(glog.V(2)) {
+			glog.Infof("Cached new query: %+v %+v\n", qc.req.Query, er)
+		}
+		return
+	}
+
+	er, err := Process(ctx)
 
 	if bool(glog.V(3)) || worker.LogDQLRequestEnabled() {
 		glog.Infof("Finished a query that started at: %+v",
