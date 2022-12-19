@@ -2,49 +2,60 @@ package main
 
 import (
 	"context"
-	// "fmt"
+	"fmt"
+	"log"
+
 	"github.com/dgraph-io/dgo/v210"
 	"github.com/dgraph-io/dgo/v210/protos/api"
 	"google.golang.org/grpc"
-	"log"
 )
 
-func run_job(cli *dgo.Dgraph, jobs int) {
+func run_job(cli *dgo.Dgraph, jobs int, fin chan bool) {
 	q := `{ me(func: has(<http://zh.dbpedia.org/property/姓名>))
             { <http://zh.dbpedia.org/property/姓名> }
         }`
-	resps := make(chan *api.Response, jobs)
 	ctx := context.Background()
 	txn := cli.NewTxn()
 	for i := 0; i < jobs; i++ {
-		go func() {
-			res, err := txn.Query(ctx, q)
-			if err != nil {
-				log.Println(err)
-			}
-			resps <- res
-		}()
-	}
-	go func() {
-
-		for i := 0; i < jobs; i++ {
-			_ = <-resps
+		_, err := txn.Query(ctx, q)
+		if err != nil {
+			log.Fatalln(err)
 		}
-		txn.Discard(ctx)
-	}()
+	}
+	txn.Discard(ctx)
+	fin <- true
 }
 
-func main() {
-	conn, err := grpc.Dial("localhost:9080", grpc.WithInsecure())
+func bench(shard int, fin chan bool) {
+	addr := fmt.Sprintf("localhost:%v", 9080+shard)
+	conn, err := grpc.Dial(addr, grpc.WithInsecure())
+	defer conn.Close()
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer conn.Close()
 	cli := dgo.NewDgraphClient(api.NewDgraphClient(conn))
-	batches := 1 << 20
-	batchsz := 100
+	batches := 4
+	batchsz := 128
+	resps := make(chan bool, batches)
 	for i := 0; i < batches; i++ {
-		run_job(cli, batchsz)
+		go run_job(cli, batchsz, resps)
+	}
+	for i := 0; i < batches; i++ {
+		_ = <-resps
 		// fmt.Printf("batch %s\n", "done")
 	}
+	fin <- true
+}
+
+func main() {
+	shards := 3
+	fin := make(chan bool, shards)
+	for i := 0; i < shards; i++ {
+		bench(i, fin)
+	}
+	for i := 0; i < shards; i++ {
+		_ = <-fin
+	}
+
 }
