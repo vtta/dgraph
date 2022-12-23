@@ -44,3 +44,5 @@ contrib/local-test/query.gql
 contrib/local-test/schema.dql
 contrib/local-test/schema.graphql
 contrib/local-test/variables.json
+
+data*
