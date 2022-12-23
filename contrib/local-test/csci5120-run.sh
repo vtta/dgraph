@@ -70,6 +70,7 @@ alpha() {
     --wal="$DATADIR/w" \
     --postings="$DATADIR/p" \
     --telemetry="reports=false;sentry=false;" \
+    --limit "mutations=disallow;" \
     &
     # &>/dev/null &
   PIDS+=($!)
